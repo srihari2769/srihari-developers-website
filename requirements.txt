@@ -14,7 +14,7 @@ psycopg2-binary==2.9.7  # PostgreSQL support for production
 python-decouple==3.8
 
 # Image Processing
-Pillow==10.0.1
+Pillow==10.4.0
 
 # API Support
 djangorestframework==3.14.0

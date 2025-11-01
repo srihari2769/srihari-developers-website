@@ -11,10 +11,13 @@ whitenoise==6.6.0
 dj-database-url==2.1.0
 
 # PostgreSQL Database Driver
-psycopg2-binary==2.9.7
+psycopg2-binary==2.9.9
 
 # Environment Variables
 python-decouple==3.8
+
+# Image Processing
+Pillow==10.4.0
 
 # Firebase (optional - will gracefully handle if not available)
 firebase-admin==6.2.0

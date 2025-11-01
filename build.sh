@@ -8,7 +8,7 @@ echo "🏗️  Starting build process for Srihari Developers..."
 # Install dependencies
 echo "📦 Installing Python dependencies..."
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements_render.txt
 
 # Collect static files
 echo "🎨 Collecting static files..."
