@@ -1,0 +1,429 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services - Srihari Developers{% endblock %}
+{% block meta_description %}Comprehensive construction and real estate services by Srihari Developers. Residential construction, commercial projects, project marketing, and real estate consultation in Tirupati.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-brand-maroon to-red-800 text-white py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl lg:text-5xl font-playfair font-bold mb-6" data-aos="fade-up">
+            Our <span class="text-brand-gold">Services</span>
+        </h1>
+        <p class="text-xl text-gray-100 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            Comprehensive construction and real estate solutions tailored to your needs
+        </p>
+    </div>
+</section>
+
+<!-- Main Services Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <!-- Residential Construction -->
+            <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Residential Construction" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-maroon bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+                            <i class="fas fa-building text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4">Residential Construction</h3>
+                        <p class="text-gray-600 mb-6">Modern apartments, luxury villas, and residential complexes designed for comfortable living with premium amenities and thoughtful layouts.</p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">2BHK & 3BHK Apartments</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Luxury Independent Villas</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Gated Community Projects</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Premium Amenities</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="openServiceModal('residential')" class="w-full bg-brand-maroon text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-800 transition-colors duration-300">
+                            Learn More & Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Commercial Projects -->
+            <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Commercial Projects" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-maroon bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+                            <i class="fas fa-city text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4">Commercial Projects</h3>
+                        <p class="text-gray-600 mb-6">State-of-the-art commercial spaces including office complexes, retail centers, and mixed-use developments with modern infrastructure.</p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Office Complexes</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Shopping Centers</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Mixed-Use Developments</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Hospitality Projects</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="openServiceModal('commercial')" class="w-full bg-brand-maroon text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-800 transition-colors duration-300">
+                            Learn More & Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Marketing -->
+            <div class="service-card group" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Project Marketing" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-maroon bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+                            <i class="fas fa-bullhorn text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4">Project Marketing</h3>
+                        <p class="text-gray-600 mb-6">Comprehensive marketing solutions to promote and sell your real estate projects effectively with digital strategies and customer relationship management.</p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Digital Marketing Campaigns</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Sales Team Management</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Customer Relations</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-brand-gold mr-3"></i>
+                                <span class="text-gray-700">Brand Development</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="openServiceModal('marketing')" class="w-full bg-brand-maroon text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-800 transition-colors duration-300">
+                            Learn More & Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Services -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Additional Services</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Extended services to support your complete real estate journey
+            </p>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-brand-cream text-brand-maroon w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <i class="fas fa-handshake text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Real Estate Consultation</h3>
+                <p class="text-gray-600">Expert advice on property investment, market trends, and portfolio management.</p>
+            </div>
+            
+            <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-brand-cream text-brand-maroon w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <i class="fas fa-chart-line text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Investment Advisory</h3>
+                <p class="text-gray-600">Strategic investment guidance for maximum returns in real estate ventures.</p>
+            </div>
+            
+            <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-brand-cream text-brand-maroon w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <i class="fas fa-cog text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Project Management</h3>
+                <p class="text-gray-600">End-to-end project management from planning to completion with quality assurance.</p>
+            </div>
+            
+            <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-brand-cream text-brand-maroon w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <i class="fas fa-users text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Customer Support</h3>
+                <p class="text-gray-600">Dedicated support throughout your journey and post-purchase assistance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Our Process</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                A systematic approach to ensure project success and customer satisfaction
+            </p>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto relative">
+                    <span class="text-2xl font-bold">1</span>
+                    <div class="hidden lg:block absolute top-8 left-16 w-24 h-0.5 bg-brand-gold"></div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Consultation</h3>
+                <p class="text-gray-600">Initial meeting to understand your requirements, budget, and timeline preferences.</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto relative">
+                    <span class="text-2xl font-bold">2</span>
+                    <div class="hidden lg:block absolute top-8 left-16 w-24 h-0.5 bg-brand-gold"></div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Planning</h3>
+                <p class="text-gray-600">Detailed project planning, design development, and cost estimation with transparent pricing.</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto relative">
+                    <span class="text-2xl font-bold">3</span>
+                    <div class="hidden lg:block absolute top-8 left-16 w-24 h-0.5 bg-brand-gold"></div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Execution</h3>
+                <p class="text-gray-600">Professional construction with regular quality checks and progress updates throughout.</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span class="text-2xl font-bold">4</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Delivery</h3>
+                <p class="text-gray-600">Timely handover with comprehensive warranties and continued customer support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-brand-maroon to-red-800 text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+        <h2 class="text-4xl font-playfair font-bold mb-6">Ready to Start Your Project?</h2>
+        <p class="text-xl mb-8 text-gray-100">
+            Get a free consultation and personalized quote for your construction or marketing needs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'core:contact' %}" class="bg-brand-gold text-brand-maroon px-8 py-4 rounded-full font-semibold hover:bg-brand-light-gold transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                Schedule Free Consultation
+            </a>
+            <button onclick="openServiceModal('general')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-maroon transition-all duration-300">
+                <i class="fas fa-calculator mr-2"></i>
+                Get Instant Quote
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Service Modal -->
+<div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-2xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-playfair font-bold text-gray-800">Service Inquiry</h3>
+                <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <form id="serviceInquiryForm" class="p-6 space-y-4">
+            {% csrf_token %}
+            <input type="hidden" id="serviceType" name="service_type" value="">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-maroon focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-maroon focus:border-transparent">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-maroon focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Project Budget</label>
+                    <select name="project_budget" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-maroon focus:border-transparent">
+                        <option value="">Select Budget Range</option>
+                        <option value="10-25">₹10L - ₹25L</option>
+                        <option value="25-50">₹25L - ₹50L</option>
+                        <option value="50-1cr">₹50L - ₹1Cr</option>
+                        <option value="1cr+">₹1Cr+</option>
+                        <option value="not_decided">Not Decided Yet</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Timeline</label>
+                <select name="timeline" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-maroon focus:border-transparent">
+                    <option value="">Select Timeline</option>
+                    <option value="immediate">Immediate (Within 1 month)</option>
+                    <option value="3months">Within 3 months</option>
+                    <option value="6months">Within 6 months</option>
+                    <option value="1year">Within 1 year</option>
+                    <option value="flexible">Flexible timeline</option>
+                </select>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Requirements</label>
+                <textarea name="message" rows="4" placeholder="Describe your project requirements..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-maroon focus:border-transparent"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-brand-maroon text-white py-4 px-6 rounded-lg font-semibold hover:bg-red-800 transition-colors duration-300">
+                <i class="fas fa-paper-plane mr-2"></i>
+                Submit Inquiry
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function openServiceModal(serviceType) {
+    const modal = document.getElementById('serviceModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const serviceTypeInput = document.getElementById('serviceType');
+    
+    // Set service type
+    serviceTypeInput.value = serviceType;
+    
+    // Set modal title based on service type
+    const titles = {
+        'residential': 'Residential Construction Inquiry',
+        'commercial': 'Commercial Project Inquiry',
+        'marketing': 'Project Marketing Inquiry',
+        'general': 'General Service Inquiry'
+    };
+    
+    modalTitle.textContent = titles[serviceType] || 'Service Inquiry';
+    
+    // Show modal
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeServiceModal() {
+    const modal = document.getElementById('serviceModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    
+    // Reset form
+    document.getElementById('serviceInquiryForm').reset();
+}
+
+// Handle service inquiry form submission
+document.getElementById('serviceInquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+    submitBtn.disabled = true;
+    
+    fetch('{% url "core:service_inquiry" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Thank you for your inquiry! We\'ll contact you within 24 hours.');
+            closeServiceModal();
+        } else {
+            alert(data.message || 'There was an error submitting your inquiry. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting your inquiry. Please try again.');
+    })
+    .finally(() => {
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    });
+});
+
+// Close modal when clicking outside
+document.getElementById('serviceModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeServiceModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !document.getElementById('serviceModal').classList.contains('hidden')) {
+        closeServiceModal();
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,377 @@
+/* 
+ * Srihari Developers - Custom Styles
+ * Brand Colors: Maroon #800000, Gold #CBA135, Cream #FFF8E1
+ */
+
+:root {
+  --brand-maroon: #800000;
+  --brand-gold: #CBA135;
+  --brand-cream: #FFF8E1;
+  --brand-light-gold: #F5E6A3;
+}
+
+/* Custom Utility Classes */
+.text-brand-maroon { color: var(--brand-maroon); }
+.text-brand-gold { color: var(--brand-gold); }
+.text-brand-cream { color: var(--brand-cream); }
+.text-brand-light-gold { color: var(--brand-light-gold); }
+
+.bg-brand-maroon { background-color: var(--brand-maroon); }
+.bg-brand-gold { background-color: var(--brand-gold); }
+.bg-brand-cream { background-color: var(--brand-cream); }
+.bg-brand-light-gold { background-color: var(--brand-light-gold); }
+
+.border-brand-maroon { border-color: var(--brand-maroon); }
+.border-brand-gold { border-color: var(--brand-gold); }
+
+/* Typography */
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+
+/* Custom Form Styles */
+.form-control {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-all duration-200;
+}
+
+.form-control:focus {
+  border-color: var(--brand-maroon);
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+/* Navigation Styles */
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: var(--brand-maroon) !important;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--brand-maroon) !important;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-brand-maroon text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-800 transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border-2 border-brand-maroon text-brand-maroon px-6 py-3 rounded-lg font-semibold hover:bg-brand-maroon hover:text-white transition-all duration-300;
+}
+
+.btn-gold {
+  @apply bg-brand-gold text-brand-maroon px-6 py-3 rounded-lg font-semibold hover:bg-brand-light-gold transition-all duration-300;
+}
+
+/* Card Styles */
+.card-hover {
+  @apply hover:shadow-2xl hover:scale-105 transition-all duration-300;
+}
+
+.service-card {
+  @apply hover:shadow-2xl transition-all duration-300;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Parallax Effect */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-maroon);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #600000;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  @apply inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin;
+}
+
+/* Gradient Backgrounds */
+.gradient-brand {
+  background: linear-gradient(135deg, var(--brand-maroon) 0%, #600000 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-light-gold) 100%);
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Effects */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-maroon), var(--brand-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center;
+}
+
+.modal-content {
+  @apply bg-white rounded-lg shadow-2xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-to-top.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Status Badges */
+.status-ongoing { @apply bg-blue-500 text-white; }
+.status-completed { @apply bg-green-500 text-white; }
+.status-planning { @apply bg-yellow-500 text-white; }
+.status-on-hold { @apply bg-gray-500 text-white; }
+
+/* Responsive Design Helpers */
+@media (max-width: 768px) {
+  .mobile-hidden { display: none !important; }
+  
+  .hero-text {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .section-padding {
+    padding: 3rem 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container-mobile {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .text-responsive {
+    font-size: 0.875rem !important;
+  }
+  
+  .grid-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    /* Dark mode styles can be added here for future enhancement */
+  }
+}
+
+/* Focus States for Accessibility */
+.focus-ring:focus {
+  @apply outline-none ring-2 ring-brand-maroon ring-opacity-50;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-brand-maroon ring-opacity-50;
+}
+
+/* Custom Line Heights */
+.leading-relaxed-plus {
+  line-height: 1.75;
+}
+
+.leading-loose-plus {
+  line-height: 2;
+}
+
+/* Brand Specific Components */
+.brand-divider {
+  height: 4px;
+  width: 60px;
+  background: var(--brand-gold);
+  margin: 0 auto;
+}
+
+.brand-section-title {
+  @apply text-4xl font-playfair font-bold text-gray-800 text-center mb-6;
+}
+
+.brand-section-subtitle {
+  @apply text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12;
+}
+
+/* Loading States */
+.loading-overlay {
+  @apply fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50;
+}
+
+.loading-content {
+  @apply text-center;
+}
+
+.loading-spinner-large {
+  @apply w-12 h-12 border-4 border-brand-maroon border-t-transparent rounded-full animate-spin mx-auto mb-4;
+}
+
+/* Success/Error States */
+.alert {
+  @apply p-4 rounded-lg border-l-4;
+}
+
+.alert-success {
+  @apply bg-green-50 border-green-400 text-green-700;
+}
+
+.alert-error {
+  @apply bg-red-50 border-red-400 text-red-700;
+}
+
+.alert-warning {
+  @apply bg-yellow-50 border-yellow-400 text-yellow-700;
+}
+
+.alert-info {
+  @apply bg-blue-50 border-blue-400 text-blue-700;
+}
+
+/* Image Overlay Effects */
+.image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.image-overlay.active,
+.group:hover .image-overlay {
+  @apply opacity-70;
+}
+
+/* Custom Grid Layouts */
+.masonry-grid {
+  columns: 3;
+  column-gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .masonry-grid {
+    columns: 1;
+  }
+}
+
+.masonry-item {
+  @apply break-inside-avoid mb-8;
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Srihari Developers - Building Dreams, Creating Legacies{% endblock %}</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="{% block meta_description %}Srihari Developers - Premier construction and real estate development company in Tirupati. Building quality residential and commercial projects.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}construction, real estate, Tirupati, apartments, residential projects, commercial projects, Srihari Developers{% endblock %}">
+    <meta name="author" content="Srihari Developers">
+    
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="{% block og_title %}Srihari Developers{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Building Dreams, Creating Legacies{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-maroon': '#800000',
+                        'brand-gold': '#CBA135',
+                        'brand-cream': '#FFF8E1',
+                        'brand-light-gold': '#F5E6A3',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    {% load static %}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="font-poppins bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="{% url 'core:home' %}" class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-auto" src="{% static 'images/logo.png' %}" alt="Srihari Developers" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="hidden text-brand-maroon font-playfair font-bold text-2xl">
+                                Srihari Developers
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'core:home' %}" class="nav-link text-gray-700 hover:text-brand-maroon px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'core:about' %}" class="nav-link text-gray-700 hover:text-brand-maroon px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'core:services' %}" class="nav-link text-gray-700 hover:text-brand-maroon px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Services</a>
+                    <a href="{% url 'core:projects' %}" class="nav-link text-gray-700 hover:text-brand-maroon px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Projects</a>
+                    <a href="{% url 'core:contact' %}" class="nav-link text-gray-700 hover:text-brand-maroon px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contact</a>
+                    <a href="{% url 'core:contact' %}" class="bg-brand-maroon text-white px-6 py-2 rounded-full hover:bg-red-800 transition-colors duration-200 font-medium">Get Quote</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button text-gray-700 hover:text-brand-maroon focus:outline-none focus:text-brand-maroon" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{% url 'core:home' %}" class="block px-3 py-2 text-gray-700 hover:text-brand-maroon hover:bg-brand-cream rounded-md">Home</a>
+                <a href="{% url 'core:about' %}" class="block px-3 py-2 text-gray-700 hover:text-brand-maroon hover:bg-brand-cream rounded-md">About</a>
+                <a href="{% url 'core:services' %}" class="block px-3 py-2 text-gray-700 hover:text-brand-maroon hover:bg-brand-cream rounded-md">Services</a>
+                <a href="{% url 'core:projects' %}" class="block px-3 py-2 text-gray-700 hover:text-brand-maroon hover:bg-brand-cream rounded-md">Projects</a>
+                <a href="{% url 'core:contact' %}" class="block px-3 py-2 text-gray-700 hover:text-brand-maroon hover:bg-brand-cream rounded-md">Contact</a>
+                <a href="{% url 'core:contact' %}" class="block px-3 py-2 bg-brand-maroon text-white rounded-md text-center mt-4">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="pt-20">
+        {% if messages %}
+            <div class="messages-container fixed top-24 right-4 z-40 space-y-2">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} bg-white border-l-4 border-{% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% elif message.tags == 'warning' %}yellow{% else %}blue{% endif %}-500 p-4 rounded shadow-lg max-w-md">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                {% if message.tags == 'success' %}
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                {% elif message.tags == 'error' %}
+                                    <i class="fas fa-exclamation-circle text-red-500"></i>
+                                {% elif message.tags == 'warning' %}
+                                    <i class="fas fa-exclamation-triangle text-yellow-500"></i>
+                                {% else %}
+                                    <i class="fas fa-info-circle text-blue-500"></i>
+                                {% endif %}
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-gray-700">{{ message }}</p>
+                            </div>
+                            <button class="ml-auto close-message text-gray-400 hover:text-gray-600" onclick="this.parentElement.parentElement.remove()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock content %}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto mr-3" src="{% static 'images/logo-white.png' %}" alt="Srihari Developers" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="hidden text-brand-gold font-playfair font-bold text-xl">
+                            Srihari Developers
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Building Dreams, Creating Legacies. Your trusted partner in construction and real estate development.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-brand-gold transition-colors duration-200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/srihari_developers_official/" target="_blank" class="text-gray-400 hover:text-brand-gold transition-colors duration-200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-brand-gold transition-colors duration-200">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-brand-gold transition-colors duration-200">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-brand-gold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'core:home' %}" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
+                        <li><a href="{% url 'core:about' %}" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
+                        <li><a href="{% url 'core:services' %}" class="text-gray-400 hover:text-white transition-colors duration-200">Services</a></li>
+                        <li><a href="{% url 'core:projects' %}" class="text-gray-400 hover:text-white transition-colors duration-200">Projects</a></li>
+                        <li><a href="{% url 'core:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold text-brand-gold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400">Residential Construction</span></li>
+                        <li><span class="text-gray-400">Commercial Projects</span></li>
+                        <li><span class="text-gray-400">Project Marketing</span></li>
+                        <li><span class="text-gray-400">Real Estate Consultation</span></li>
+                        <li><span class="text-gray-400">Investment Advisory</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold text-brand-gold mb-4">Contact Info</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-brand-gold mt-1 mr-3"></i>
+                            <span class="text-gray-400">Tirupati, Andhra Pradesh, India</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-brand-gold mr-3"></i>
+                            <span class="text-gray-400">+91-9032981675</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-brand-gold mr-3"></i>
+                            <span class="text-gray-400">info@sriharidevelopers.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-brand-gold mr-3"></i>
+                            <span class="text-gray-400">Mon - Sat: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">&copy; {% now "Y" %} Srihari Developers. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919032981675?text=Hello%20Srihari%20Developers%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+       target="_blank" 
+       class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors duration-200 z-40">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top fixed bottom-6 left-6 bg-brand-maroon text-white w-12 h-12 rounded-full items-center justify-center shadow-lg hover:bg-red-800 transition-all duration-200 z-40 opacity-0 pointer-events-none">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+        
+        // Auto-hide messages after 5 seconds
+        setTimeout(function() {
+            const messages = document.querySelectorAll('.messages-container .alert');
+            messages.forEach(function(message) {
+                message.style.opacity = '0';
+                setTimeout(function() {
+                    message.remove();
+                }, 300);
+            });
+        }, 5000);
+        
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTop.classList.remove('opacity-0', 'pointer-events-none');
+                scrollToTop.classList.add('flex');
+            } else {
+                scrollToTop.classList.add('opacity-0', 'pointer-events-none');
+                scrollToTop.classList.remove('flex');
+            }
+        });
+        
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('bg-white', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

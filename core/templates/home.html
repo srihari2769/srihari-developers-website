@@ -1,0 +1,380 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Srihari Developers - Building Dreams, Creating Legacies{% endblock %}
+{% block meta_description %}Srihari Developers - Premier construction and real estate development company in Tirupati. Specializing in quality residential and commercial projects with expert project marketing services.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-brand-maroon to-red-800 text-white overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><polygon points="30 0 60 30 30 60 0 30"/></g></g></svg>');"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Hero Content -->
+            <div data-aos="fade-right">
+                <h1 class="text-4xl lg:text-6xl font-playfair font-bold leading-tight mb-6">
+                    Building <span class="text-brand-gold">Dreams</span>,<br>
+                    Creating <span class="text-brand-gold">Legacies</span>
+                </h1>
+                <p class="text-xl text-gray-100 mb-8 leading-relaxed">
+                    Transform your vision into reality with Srihari Developers. We specialize in premium construction, innovative design, and comprehensive project marketing solutions in Tirupati and beyond.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{% url 'core:projects' %}" class="bg-brand-gold text-brand-maroon px-8 py-4 rounded-full font-semibold hover:bg-brand-light-gold transition-all duration-300 text-center transform hover:scale-105">
+                        <i class="fas fa-building mr-2"></i>
+                        View Our Projects
+                    </a>
+                    <a href="{% url 'core:contact' %}" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-maroon transition-all duration-300 text-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Get Free Consultation
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-gold mb-2">50+</div>
+                        <div class="text-sm text-gray-200">Projects Completed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-gold mb-2">1000+</div>
+                        <div class="text-sm text-gray-200">Happy Families</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-gold mb-2">15+</div>
+                        <div class="text-sm text-gray-200">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Image -->
+            <div class="relative" data-aos="fade-left">
+                <div class="relative z-10">
+                    <img src="{% static 'images/hero-building.jpg' %}" alt="Srihari Developers Projects" class="rounded-lg shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80';">
+                </div>
+                <!-- Floating Card -->
+                <div class="absolute -bottom-6 -left-6 bg-white text-gray-800 p-6 rounded-lg shadow-xl z-20 max-w-xs">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-brand-maroon text-white p-2 rounded-full mr-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-brand-maroon">Premium Quality</div>
+                            <div class="text-sm text-gray-600">Certified Excellence</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Our Services</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive construction and real estate solutions tailored to your needs
+            </p>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+                    <i class="fas fa-building text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Residential Construction</h3>
+                <p class="text-gray-600 mb-6">Modern apartments, villas, and residential complexes designed for comfortable living with premium amenities.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>2BHK & 3BHK Apartments</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Luxury Villas</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Gated Communities</li>
+                </ul>
+            </div>
+            
+            <!-- Service Card 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+                    <i class="fas fa-city text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Commercial Projects</h3>
+                <p class="text-gray-600 mb-6">State-of-the-art commercial spaces including offices, retail complexes, and mixed-use developments.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Office Complexes</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Shopping Centers</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Mixed-Use Developments</li>
+                </ul>
+            </div>
+            
+            <!-- Service Card 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-brand-maroon text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+                    <i class="fas fa-bullhorn text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Project Marketing</h3>
+                <p class="text-gray-600 mb-6">Comprehensive marketing solutions to promote and sell your real estate projects effectively.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Digital Marketing</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Sales Management</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i>Customer Relations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Featured Projects</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Discover our latest developments that showcase innovation, quality, and attention to detail
+            </p>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="featured-projects">
+            <!-- Projects will be loaded here via JavaScript/Django -->
+            {% for project in featured_projects %}
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="relative overflow-hidden">
+                    <img src="{{ project.image_url|default:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' }}" 
+                         alt="{{ project.name }}" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute top-4 left-4 bg-brand-maroon text-white px-3 py-1 rounded-full text-sm font-medium">
+                        {{ project.status|capfirst }}
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ project.name }}</h3>
+                    <p class="text-gray-600 mb-4">
+                        <i class="fas fa-map-marker-alt text-brand-gold mr-1"></i>
+                        {{ project.location }}
+                    </p>
+                    <p class="text-gray-600 text-sm mb-4">{{ project.description|truncatewords:15 }}</p>
+                    {% if project.completion_date %}
+                    <p class="text-brand-maroon text-sm mb-4">
+                        <i class="fas fa-calendar text-brand-gold mr-1"></i>
+                        Expected: {{ project.completion_date|date:"M Y" }}
+                    </p>
+                    {% endif %}
+                    <a href="{% url 'core:project_detail' project.id %}" class="text-brand-maroon font-semibold hover:text-brand-gold transition-colors duration-200">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <!-- Fallback projects if no projects in Firebase -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Srihari Enclave" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute top-4 left-4 bg-brand-maroon text-white px-3 py-1 rounded-full text-sm font-medium">
+                        Ongoing
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Srihari Enclave</h3>
+                    <p class="text-gray-600 mb-4">
+                        <i class="fas fa-map-marker-alt text-brand-gold mr-1"></i>
+                        Tirupati
+                    </p>
+                    <p class="text-gray-600 text-sm mb-4">Luxury 2BHK & 3BHK apartments with modern amenities and premium finishes.</p>
+                    <p class="text-brand-maroon text-sm mb-4">
+                        <i class="fas fa-calendar text-brand-gold mr-1"></i>
+                        Expected: Dec 2025
+                    </p>
+                    <a href="{% url 'core:projects' %}" class="text-brand-maroon font-semibold hover:text-brand-gold transition-colors duration-200">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{% url 'core:projects' %}" class="bg-brand-maroon text-white px-8 py-4 rounded-full font-semibold hover:bg-red-800 transition-all duration-300 inline-block">
+                View All Projects
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-20 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-6">Why Choose Srihari Developers?</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    With over 15 years of experience in construction and real estate, we bring expertise, reliability, and innovation to every project.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-brand-maroon text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Quality Craftsmanship</h3>
+                            <p class="text-gray-600">Premium materials and skilled workmanship ensure lasting value and satisfaction.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-brand-maroon text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Timely Delivery</h3>
+                            <p class="text-gray-600">We respect your time and deliver projects on schedule without compromising quality.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-brand-maroon text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Transparent Process</h3>
+                            <p class="text-gray-600">Clear communication and transparent pricing throughout the construction journey.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-brand-maroon text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Customer Support</h3>
+                            <p class="text-gray-600">Dedicated support team ensuring excellent service before, during, and after project completion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Construction Quality" 
+                     class="rounded-lg shadow-lg">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Modern Design" 
+                     class="rounded-lg shadow-lg mt-8">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Real experiences from families who chose Srihari Developers for their dream homes
+            </p>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-brand-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 italic mb-6">"Exceptional quality and professional service. Our dream home became reality with Srihari Developers. Highly recommended!"</p>
+                <div class="flex items-center">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                         alt="Rajesh Kumar" 
+                         class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <div class="font-semibold text-gray-800">Rajesh Kumar</div>
+                        <div class="text-sm text-gray-500">Srihari Enclave Resident</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-brand-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 italic mb-6">"Transparent pricing, timely delivery, and excellent craftsmanship. We couldn't be happier with our new home!"</p>
+                <div class="flex items-center">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616c90308d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                         alt="Priya Sharma" 
+                         class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <div class="font-semibold text-gray-800">Priya Sharma</div>
+                        <div class="text-sm text-gray-500">Luxury Villa Owner</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-brand-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 italic mb-6">"Professional team, quality construction, and great support throughout the process. Truly satisfied with the results!"</p>
+                <div class="flex items-center">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                         alt="Venkat Rao" 
+                         class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <div class="font-semibold text-gray-800">Venkat Rao</div>
+                        <div class="text-sm text-gray-500">Commercial Client</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-brand-maroon to-red-800 text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+        <h2 class="text-4xl font-playfair font-bold mb-6">Ready to Build Your Dream?</h2>
+        <p class="text-xl mb-8 text-gray-100">
+            Let's discuss your project and bring your vision to life. Get a free consultation today!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'core:contact' %}" class="bg-brand-gold text-brand-maroon px-8 py-4 rounded-full font-semibold hover:bg-brand-light-gold transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-phone mr-2"></i>
+                Schedule Consultation
+            </a>
+            <a href="{% url 'core:projects' %}" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-maroon transition-all duration-300">
+                <i class="fas fa-eye mr-2"></i>
+                View Projects
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
