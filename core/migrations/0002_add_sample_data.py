@@ -14,52 +14,45 @@ def add_sample_data(apps, schema_editor):
     # Create company info
     CompanyInfo.objects.get_or_create(
         defaults={
-            'name': 'Srihari Developers',
+            'company_name': 'Srihari Developers',
             'tagline': 'Building Dreams, Creating Realities',
-            'description': 'Leading construction company in Tirupati specializing in residential and commercial projects.',
+            'description': 'Leading construction company in Tirupati specializing in residential and commercial projects with over 8 years of experience.',
             'phone': '+91-9014376635',
             'email': 'info@sriharidevelopers.com',
             'address': 'VSM BUILDING, Renigunta Rd, Tirupati, Andhra Pradesh 517501',
             'established_year': 2015,
-            'completed_projects': 50,
-            'happy_clients': 200,
+            'instagram_url': 'https://www.instagram.com/srihari_developers_official/',
         }
     )
     
     # Create sample projects
     Project.objects.get_or_create(
-        title='Luxury Villa Complex',
+        name='Luxury Villa Complex',
         defaults={
             'description': 'Premium residential villas with modern amenities and beautiful architecture.',
             'location': 'Tirupati',
-            'area': '2500 sq ft',
             'status': 'completed',
             'featured': True,
-            'category': 'residential'
         }
     )
     
     Project.objects.get_or_create(
-        title='Commercial Plaza',
+        name='Commercial Plaza',
         defaults={
             'description': 'Multi-story commercial building with retail spaces and office facilities.',
             'location': 'Renigunta Road, Tirupati',
-            'area': '5000 sq ft',
             'status': 'completed',
             'featured': True,
-            'category': 'commercial'
         }
     )
     
     Project.objects.get_or_create(
-        title='Modern Apartments',
+        name='Modern Apartments',
         defaults={
             'description': 'Contemporary apartment complex with all modern facilities and amenities.',
             'location': 'Tirupati',
-            'area': '1200 sq ft',
             'status': 'completed',
             'featured': True,
-            'category': 'residential'
         }
     )
     
@@ -67,30 +60,33 @@ def add_sample_data(apps, schema_editor):
     Testimonial.objects.get_or_create(
         client_name='Rajesh Kumar',
         defaults={
-            'content': 'Excellent work quality and timely delivery. Highly recommended for construction projects!',
+            'testimonial_text': 'Excellent work quality and timely delivery. Highly recommended for construction projects!',
             'rating': 5,
             'is_featured': True,
-            'project_type': 'Villa Construction'
+            'project_name': 'Villa Construction',
+            'client_position': 'Property Owner'
         }
     )
     
     Testimonial.objects.get_or_create(
         client_name='Priya Sharma',
         defaults={
-            'content': 'Professional team with great attention to detail. Very satisfied with the results.',
+            'testimonial_text': 'Professional team with great attention to detail. Very satisfied with the results.',
             'rating': 5,
             'is_featured': True,
-            'project_type': 'Home Renovation'
+            'project_name': 'Home Renovation',
+            'client_position': 'Homeowner'
         }
     )
     
     Testimonial.objects.get_or_create(
         client_name='Venkat Reddy',
         defaults={
-            'content': 'Best construction company in Tirupati. Great experience working with them!',
+            'testimonial_text': 'Best construction company in Tirupati. Great experience working with them!',
             'rating': 5,
             'is_featured': True,
-            'project_type': 'Commercial Building'
+            'project_name': 'Commercial Building',
+            'client_position': 'Business Owner'
         }
     )
 
@@ -102,7 +98,7 @@ def remove_sample_data(apps, schema_editor):
     Testimonial = apps.get_model('core', 'Testimonial')
     
     # Clean up sample data
-    Project.objects.filter(title__in=[
+    Project.objects.filter(name__in=[
         'Luxury Villa Complex', 
         'Commercial Plaza', 
         'Modern Apartments'
@@ -114,7 +110,7 @@ def remove_sample_data(apps, schema_editor):
         'Venkat Reddy'
     ]).delete()
     
-    CompanyInfo.objects.filter(name='Srihari Developers').delete()
+    CompanyInfo.objects.filter(company_name='Srihari Developers').delete()
 
 
 class Migration(migrations.Migration):
