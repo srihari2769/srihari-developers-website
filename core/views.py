@@ -34,8 +34,9 @@ logger = logging.getLogger(__name__)
 
 def home(request):
     """
-    Homepage view with featured projects and testimonials from Firebase
+    Homepage view with featured projects and testimonials - works with empty database
     """
+    # Default context with empty data (safe fallback)
     context = {
         'featured_projects': [],
         'testimonials': [],
@@ -43,30 +44,61 @@ def home(request):
     }
     
     try:
-        # Get company info from Django model
-        context['company_info'] = CompanyInfo.objects.first()
+        # Safely get company info
+        try:
+            context['company_info'] = CompanyInfo.objects.first()
+        except:
+            # Create default company info if none exists
+            context['company_info'] = {
+                'name': 'Srihari Developers',
+                'tagline': 'Building Dreams, Creating Realities',
+                'description': 'Leading construction company in Tirupati specializing in residential and commercial projects.',
+                'phone': '+91-9014376635',
+                'email': 'info@sriharidevelopers.com',
+                'address': 'VSM BUILDING, Renigunta Rd, Tirupati, Andhra Pradesh 517501'
+            }
         
-        # Get featured projects from Firebase
-        featured_projects = project_service.get_featured_projects(limit=6)
-        if featured_projects:
-            context['featured_projects'] = featured_projects
-        else:
-            # Fallback to Django model if Firebase is not available
-            context['featured_projects'] = Project.objects.filter(featured=True)[:6]
+        # Safely get projects (Firebase or Django)
+        try:
+            if FIREBASE_AVAILABLE and project_service:
+                featured_projects = project_service.get_featured_projects(limit=6)
+                if featured_projects:
+                    context['featured_projects'] = featured_projects
+                else:
+                    context['featured_projects'] = list(Project.objects.filter(featured=True)[:6])
+            else:
+                context['featured_projects'] = list(Project.objects.filter(featured=True)[:6])
+        except Exception as e:
+            logger.error(f"Error loading projects: {str(e)}")
+            context['featured_projects'] = []
         
-        # Get testimonials from Firebase
-        testimonials = testimonial_service.get_featured_testimonials(limit=6)
-        if testimonials:
-            context['testimonials'] = testimonials
-        else:
-            # Fallback to Django model
-            context['testimonials'] = Testimonial.objects.filter(is_featured=True)[:6]
+        # Safely get testimonials (Firebase or Django)
+        try:
+            if FIREBASE_AVAILABLE and testimonial_service:
+                testimonials = testimonial_service.get_featured_testimonials(limit=6)
+                if testimonials:
+                    context['testimonials'] = testimonials
+                else:
+                    context['testimonials'] = list(Testimonial.objects.filter(is_featured=True)[:6])
+            else:
+                context['testimonials'] = list(Testimonial.objects.filter(is_featured=True)[:6])
+        except Exception as e:
+            logger.error(f"Error loading testimonials: {str(e)}")
+            context['testimonials'] = []
             
     except Exception as e:
-        logger.error(f"Error loading homepage data: {str(e)}")
-        # Use fallback data from Django models
-        context['featured_projects'] = Project.objects.filter(featured=True)[:6]
-        context['testimonials'] = Testimonial.objects.filter(is_featured=True)[:6]
+        logger.error(f"Error in homepage view: {str(e)}")
+        # Ensure we always have safe defaults
+        context = {
+            'featured_projects': [],
+            'testimonials': [],
+            'company_info': {
+                'name': 'Srihari Developers',
+                'tagline': 'Building Dreams, Creating Realities',
+                'phone': '+91-9014376635',
+                'email': 'info@sriharidevelopers.com'
+            }
+        }
     
     return render(request, 'home.html', context)
 
