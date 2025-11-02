@@ -67,28 +67,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sriharidevelopers.wsgi.application'
 
 # Database
-# Using PostgreSQL in production (when DATABASE_URL is set), SQLite for local development
-if os.environ.get('DATABASE_URL'):
-    try:
-        import dj_database_url
-        DATABASES = {
-            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-        }
-    except ImportError:
-        # Fallback to SQLite if dj_database_url is not available
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-            }
-        }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+# Force SQLite for now to avoid PostgreSQL/psycopg2 issues with Python 3.13
+# This ensures deployment works regardless of DATABASE_URL being set
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+# Uncomment below to use PostgreSQL when ready:
+# if os.environ.get('DATABASE_URL') and os.environ.get('USE_POSTGRESQL'):
+#     try:
+#         import dj_database_url
+#         DATABASES = {
+#             'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#         }
+#     except ImportError:
+#         pass
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
