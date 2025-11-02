@@ -36,70 +36,46 @@ def home(request):
     """
     Homepage view with featured projects and testimonials - works with empty database
     """
-    # Default context with empty data (safe fallback)
+    logger.info("Homepage view called")
+    
+    # Start with safe defaults
     context = {
         'featured_projects': [],
         'testimonials': [],
-        'company_info': None,
+        'company_info': {
+            'company_name': 'Srihari Developers',
+            'tagline': 'Building Dreams, Creating Realities',
+            'description': 'Leading construction company in Tirupati specializing in residential and commercial projects.',
+            'phone': '+91-9014376635',
+            'email': 'info@sriharidevelopers.com',
+            'address': 'VSM BUILDING, Renigunta Rd, Tirupati, Andhra Pradesh 517501'
+        }
     }
     
     try:
-        # Safely get company info
-        try:
-            context['company_info'] = CompanyInfo.objects.first()
-        except:
-            # Create default company info if none exists
-            context['company_info'] = {
-                'name': 'Srihari Developers',
-                'tagline': 'Building Dreams, Creating Realities',
-                'description': 'Leading construction company in Tirupati specializing in residential and commercial projects.',
-                'phone': '+91-9014376635',
-                'email': 'info@sriharidevelopers.com',
-                'address': 'VSM BUILDING, Renigunta Rd, Tirupati, Andhra Pradesh 517501'
-            }
+        # Try to get company info from database
+        company_info = CompanyInfo.objects.first()
+        if company_info:
+            context['company_info'] = company_info
+            logger.info("Company info loaded from database")
+        else:
+            logger.info("Using default company info")
         
-        # Safely get projects (Firebase or Django)
-        try:
-            if FIREBASE_AVAILABLE and project_service:
-                featured_projects = project_service.get_featured_projects(limit=6)
-                if featured_projects:
-                    context['featured_projects'] = featured_projects
-                else:
-                    context['featured_projects'] = list(Project.objects.filter(featured=True)[:6])
-            else:
-                context['featured_projects'] = list(Project.objects.filter(featured=True)[:6])
-        except Exception as e:
-            logger.error(f"Error loading projects: {str(e)}")
-            context['featured_projects'] = []
+        # Try to get projects
+        projects = Project.objects.filter(featured=True)[:6]
+        context['featured_projects'] = list(projects)
+        logger.info(f"Loaded {len(context['featured_projects'])} projects")
         
-        # Safely get testimonials (Firebase or Django)
-        try:
-            if FIREBASE_AVAILABLE and testimonial_service:
-                testimonials = testimonial_service.get_featured_testimonials(limit=6)
-                if testimonials:
-                    context['testimonials'] = testimonials
-                else:
-                    context['testimonials'] = list(Testimonial.objects.filter(is_featured=True)[:6])
-            else:
-                context['testimonials'] = list(Testimonial.objects.filter(is_featured=True)[:6])
-        except Exception as e:
-            logger.error(f"Error loading testimonials: {str(e)}")
-            context['testimonials'] = []
+        # Try to get testimonials
+        testimonials = Testimonial.objects.filter(is_featured=True)[:6]
+        context['testimonials'] = list(testimonials)
+        logger.info(f"Loaded {len(context['testimonials'])} testimonials")
             
     except Exception as e:
-        logger.error(f"Error in homepage view: {str(e)}")
-        # Ensure we always have safe defaults
-        context = {
-            'featured_projects': [],
-            'testimonials': [],
-            'company_info': {
-                'name': 'Srihari Developers',
-                'tagline': 'Building Dreams, Creating Realities',
-                'phone': '+91-9014376635',
-                'email': 'info@sriharidevelopers.com'
-            }
-        }
+        logger.error(f"Error in homepage view: {str(e)}", exc_info=True)
+        # Context already has safe defaults
     
+    logger.info("Rendering home.html template")
     return render(request, 'home.html', context)
 
 
