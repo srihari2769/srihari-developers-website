@@ -115,8 +115,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',
 ]
 
-# Static files for Vercel
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Static files for production - use simpler storage to avoid manifest issues
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media files
 MEDIA_URL = '/media/'
