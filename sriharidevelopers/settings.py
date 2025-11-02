@@ -67,12 +67,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sriharidevelopers.wsgi.application'
 
 # Database
-# Using Railway PostgreSQL in production, SQLite for local development
+# Using PostgreSQL in production (when DATABASE_URL is set), SQLite for local development
 if os.environ.get('DATABASE_URL'):
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
+    try:
+        import dj_database_url
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    except ImportError:
+        # Fallback to SQLite if dj_database_url is not available
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
 else:
     DATABASES = {
         'default': {
